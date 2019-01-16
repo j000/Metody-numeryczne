@@ -1,0 +1,36 @@
+---
+BasedOnStyle: Webkit
+ColumnLimit: 80
+IndentWidth: 4
+ContinuationIndentWidth: 4
+TabWidth: 4
+UseTab: Always
+KeepEmptyLinesAtTheStartOfBlocks: false
+MaxEmptyLinesToKeep: 1
+AlwaysBreakAfterDefinitionReturnType: None
+AlwaysBreakAfterReturnType: None
+BreakBeforeBraces: WebKit
+AllowShortFunctionsOnASingleLine: None
+AlignTrailingComments: false
+AlignAfterOpenBracket: DontAlign
+AlignOperands: false
+ObjCBlockIndentWidth: 4
+IndentCaseLabels: false
+SpaceAfterTemplateKeyword: true
+PenaltyReturnTypeOnItsOwnLine: 60
+BreakConstructorInitializers: BeforeComma
+BreakBeforeBinaryOperators: All
+BreakBeforeInheritanceComma: false
+BreakInheritanceList: BeforeComma
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+Cpp11BracedListStyle: true
+SpaceBeforeCpp11BracedList: false
+AccessModifierOffset: -4
+ConstructorInitializerIndentWidth: 4
+AlwaysBreakTemplateDeclarations: true
+AlignEscapedNewlines: Left
+BinPackArguments: false
+BinPackParameters: false
+AllowAllParametersOfDeclarationOnNextLine: false
+AlignAfterOpenBracket: AlwaysBreak
+...
