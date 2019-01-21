@@ -1,0 +1,12 @@
+# pozostałości po kompilacji
+*.o
+*.d
+# skompilowane programy
+*.x
+# tarballe
+*.tar
+*.tar.*
+# wykresy
+*.png
+# pliki pomocnicze
+result.*.txt
