@@ -33,4 +33,5 @@ BinPackArguments: false
 BinPackParameters: false
 AllowAllParametersOfDeclarationOnNextLine: false
 AlignAfterOpenBracket: AlwaysBreak
+FixNamespaceComments: true
 ...
