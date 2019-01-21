@@ -8,13 +8,13 @@ Wykonanie polecenia `make` utworzy programy. `make clean` usuwa wszystkie pliki
 stworzone podczas kompilacji.
 
 
-### Zadanie 1
+### Zadanie 1: `zad1.x`
 
 Dla funkcji ciągłych najlepszym przybliżeniem jest użycie kwadratury
 Gaussa-Legendre'a (o ilości punktów większej od stopnia wielomianu). Dla funkcji
 nieciągłych użycie metody trapezów czy Simpsona daje zdecydowanie lepsze wyniki.
 
-### Zadanie 2
+### Zadanie 2: `zad2.x`
 
 Dla niedużego "przycięcia" nieskończoności (ograniczenie do przedziału \[0,100\])
 i dużej ilości punktów metody Simspona i trapezów dają najlepsze wyniki. Przy
