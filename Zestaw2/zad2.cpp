@@ -129,7 +129,7 @@ void policz_simpsonem(
 	std::cout << "\tmetoda Simpsona [0, " << limit << "]:" << std::endl;
 	for (auto i{1000u}; i <= 1'000'000; i *= 10) {
 		std::cout << "\t\t" << i
-				  << " punktów, błąd: " << wynik - metoda_simpsona(f, i, limit)
+				  << " punktów, błąd: " << metoda_simpsona(f, i, limit) - wynik
 				  << std::endl;
 	}
 }
@@ -144,9 +144,9 @@ void policz_simpsonem(const std::function<double(double)>& f, double wynik)
 void policz_gaussem(const std::function<double(double)>& f, double wynik)
 {
 	std::cout << "\t2-punktowa kwadratura Gaussa, błąd: "
-			  << wynik - kwadratura_gaussa(f) << std::endl;
+			  << kwadratura_gaussa(f) - wynik << std::endl;
 	std::cout << "\t4-punktowa kwadratura Gaussa, błąd: "
-			  << wynik - kwadratura_gaussa2(f) << std::endl;
+			  << kwadratura_gaussa2(f) - wynik << std::endl;
 }
 
 void policz_sinhtanh(const std::function<double(double)>& f, double wynik)
@@ -154,7 +154,7 @@ void policz_sinhtanh(const std::function<double(double)>& f, double wynik)
 	std::cout << "\tkwadratura sinh-tanh:" << std::endl;
 	for (auto i{10u}; i <= 10'000; i *= 10) {
 		std::cout << "\t\t" << i
-				  << " punktów, błąd: " << wynik - kwadratura_sinhtanh(f, i)
+				  << " punktów, błąd: " << kwadratura_sinhtanh(f, i) - wynik
 				  << std::endl;
 	}
 }
