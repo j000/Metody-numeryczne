@@ -5,10 +5,7 @@ SHELL := /bin/sh
 
 # pliki
 # HELPERS nie tworzą plików wykonywalnych
-CHECKS := $(wildcard *check.cpp)
-TESTS := $(wildcard *test.cpp)
-GENERATORS := $(wildcard gen*.cpp)
-HELPERS := $(CHECKS) $(TESTS) $(GENERATORS)
+HELPERS :=
 FILES := $(filter-out $(HELPERS),$(wildcard *.cpp))
 
 ####################
@@ -24,7 +21,7 @@ tar := Rymut_$(zestaw).tar.gz
 
 ####################
 # flagi
-CFLAGS := -O3 -march=native -pipe -Wall -Wextra -Weffc++ -Wconversion -Wpedantic
+CFLAGS := -O3 -march=native -pipe -Wall -Wextra -Weffc++ -Wconversion -Wpedantic -Wno-literal-suffix
 # PIC > PIE > no-pie
 CFLAGS += -fPIC
 # and for linker:
@@ -33,8 +30,10 @@ LDFLAGS += -pie
 LDLIBS += -Wl,-R.
 # link time optimization
 CFLAGS += -flto
+# bleh...
+CFLAGS += -mfpmath=sse -msse2
 # standardy
-CXXFLAGS := -std=c++14 $(CFLAGS)
+CXXFLAGS := -std=c++17 $(CFLAGS)
 CFLAGS += -std=c11
 
 CPPFLAGS := -MMD -MP
@@ -42,7 +41,7 @@ CPPFLAGS := -MMD -MP
 ####################
 # private jest dostępne od GNU make 3.82
 ifneq (3.82,$(firstword $(sort $(MAKE_VERSION) 3.82)))
-  $(error "*** PLEASE USE AT LEAST GNU MAKE 3.82 FROM 2010 ***")
+  $(error "*** WYMAGANE GNU MAKE 3.82 Z 2010 ***")
 endif
 
 ####################
@@ -147,46 +146,3 @@ check:
 .PHONY: format
 format:
 	@clang-format -i -style=file $(FILES) $(HELPERS)
-
-####################
-# testy
-N := 350
-
-.PHONY: test
-test:
-	@printf "\033"'[32m   /`"'\''-,__'"\n"
-	@printf '   \/\)`   `'\''-.'"\n"
-	@printf '  // \ .--.\   '\''.'"\n"
-	@printf ' //|-.  \_o `-.  \---._'"\n"
-	@printf ' || \_o\  _.-.\`'\''-'\''    `-.'"\n"
-	@printf ' || |\.-'\''`    |           `.'"\n"
-	@printf ' || | \  \    |             `\\'"\n"
-	@printf ' \| /  \ ,\'\'' /                \\'"\n"
-	@printf '  `'\''    `---'\''                  ;'"\n"
-	@printf '         `))          .-'\''      |'"\n"
-	@printf '      .-.// .-.     .'\''        ,;=D'"\n"
-	@printf '     /  // /   \  .'\''          ||'"\n"
-	@printf '    |..-'\'' |     '\''-'\''          //'"\n"
-	@printf '    ((    \         .===. _,//                    All tests are successfull!'"\n"
-	@printf '     '\''`'\''--`'\''---'\'''\'''\'',--\_/-;-'\''`'"\n"
-	@printf 'jgs                `~/^\`'"\n"
-	@printf '                    '\''==='\'"\033"'[0m'"\n"
-
-%.x: %.cxx
-	g++ -std=c++11 -O2 -o $@ $^
-
-.PHONY: FORCE
-FORCE:
-test.gen%.txt: gen%.x FORCE
-	./$(filter %.x,$^) $(N) >$@
-
-test.%.txt: %.x
-	/usr/bin/time -f "%C: %E (mem: %MKB, cpu: %P)" ./$(filter %.x,$^) <$(filter test.gen%,$^) >$@
-
-test_%: test.%.txt
-	@diff -sq $^
-
-%test: %test.x
-	./$^
-
-test: $(subst .cpp,,$(TESTS))
