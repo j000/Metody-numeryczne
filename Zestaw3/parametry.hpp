@@ -1,9 +1,9 @@
 #ifndef PARAMETRY_HPP
 #define PARAMETRY_HPP
 
-const double x = -2.;
-const double real_result = -2.;
-const auto f = [](const double x) { return (2. + x) * x - 1.; };
+const double x = 4.;
+const double real_result = 19.;
+const auto f = [](const double x) { return (2. * x + 3.) * x - 1.; };
 
 ////////////////////////////////////////
 
