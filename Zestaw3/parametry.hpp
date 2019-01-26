@@ -9,6 +9,7 @@ const auto f = [](const double x) { return (2. * x + 3.) * x - 1.; };
 
 #include <cmath>
 #include <functional>
+#include <iomanip>
 #include <iostream>
 
 double blad(const double x, const double x_prawdziwe)
@@ -31,6 +32,9 @@ pochodna(const std::function<double(double)>&, const double, const double);
 
 int main(int, char**)
 {
+	// number of digits that are necessary to uniquely represent distinct values
+	std::cout << std::setprecision(std::numeric_limits<double>::max_digits10);
+
 	std::cout << "i,pochodna,wyliczona pochodna,błąd,błąd względny"
 			  << std::endl;
 	for (auto i{0u}; i <= 64; ++i) {
