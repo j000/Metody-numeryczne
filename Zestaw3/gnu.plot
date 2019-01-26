@@ -5,12 +5,12 @@ set term pngcairo background "#171111" size 1920,1080 font 'Input Mono'
 # author: Anna Schneider
 set linetype 1 lw 2 lc rgb '#8DD3C7' pt 0 # teal
 set linetype 2 lw 2 lc rgb '#FFFFB3' pt 5 # banana
-set linetype 3 lw 2 lc rgb '#BEBADA' pt 7 # lilac
-set linetype 4 lw 2 lc rgb '#FB8072' pt 9 # red
-set linetype 5 lw 2 lc rgb '#80B1D3' pt 11 # steel blue
-set linetype 6 lw 2 lc rgb '#FDB462' pt 13 # adobe orange
-set linetype 7 lw 2 lc rgb '#B3DE69' pt 15 # lime green
-set linetype 8 lw 2 lc rgb '#FCCDE5' pt 3 # mauve
+set linetype 3 lw 2 lc rgb '#FB8072' pt 9 # red
+set linetype 4 lw 2 lc rgb '#80B1D3' pt 11 # steel blue
+set linetype 5 lw 2 lc rgb '#FDB462' pt 13 # adobe orange
+set linetype 6 lw 2 lc rgb '#B3DE69' pt 15 # lime green
+set linetype 7 lw 2 lc rgb '#FCCDE5' pt 3 # mauve
+set linetype 8 lw 2 lc rgb '#BEBADA' pt 7 # lilac
 set linetype cycle 8
 ########################################
 # # Ethan A Merritt - my preference for gnuplot colors
