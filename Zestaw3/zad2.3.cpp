@@ -2,7 +2,10 @@
 
 #include "parametry.hpp"
 
-double pochodna(const std::function<double(double)>& f, double x, double delta)
+double pochodna(
+	const std::function<double(double)>& f,
+	const double x,
+	const double delta)
 {
 	// clang-format off
 	double tmp =

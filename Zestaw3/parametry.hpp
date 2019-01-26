@@ -1,12 +1,9 @@
 #ifndef PARAMETRY_HPP
 #define PARAMETRY_HPP
 
-const double x = 5.;
-const auto f = [](const double x) { return (2. + x) * x; };
-const double real_result = 12.;
-// w sumie pochodna jest używana tylko ponizej, więc można podać liczbę
-// const auto f_prim = [](const double x) { return 2. * (1. + x); };
-// const double real_result = f_prim(x);
+const double x = -2.;
+const double real_result = -2.;
+const auto f = [](const double x) { return (2. + x) * x - 1.; };
 
 ////////////////////////////////////////
 
@@ -34,14 +31,15 @@ pochodna(const std::function<double(double)>&, const double, const double);
 
 int main(int, char**)
 {
-	std::cout << "i,result,błąd,błąd względny" << std::endl;
+	std::cout << "i,pochodna,wyliczona pochodna,błąd,błąd względny"
+			  << std::endl;
 	for (auto i{0u}; i <= 64; ++i) {
 		const double delta = 1. / std::pow(2., i);
 		const double result = pochodna(f, x, delta);
 		const double err = blad(result, real_result);
 		const double err_rel = blad_wzgledny(result, real_result);
-		std::cout << i << "," << result << "," << err << "," << err_rel
-				  << std::endl;
+		std::cout << i << "," << real_result << "," << result << "," << err
+				  << "," << err_rel << std::endl;
 	}
 	return 0;
 }
