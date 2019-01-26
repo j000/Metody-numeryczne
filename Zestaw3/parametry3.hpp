@@ -6,7 +6,7 @@
 // const double x = 4.;
 // const double real_result = 19.;
 // const auto f = [](const double x) { return (2. * x + 3.) * x - 1.; };
-const double x = 1.;
+const double x = 0.5;
 const double real_result = std::cos(x);
 const auto f = [](const double x) { return std::sin(x); };
 

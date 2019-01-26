@@ -46,7 +46,7 @@ do for [i=2:ALL_columns] {
 }
 
 # drugi wykres:
-max = 1e-6 # 1.05 * max(maxs[3], maxs[4])
+max = 1e-2 # 1.05 * max(maxs[3], maxs[4])
 # ile zajmuje drugi wykres
 split = 0.3
 
@@ -73,6 +73,6 @@ set ytics add ("" maxs[5] 1)
 set format x ""
 set key off
 
-plot for [i=3:ALL_columns] filename using 1:i lc i-1
+plot for [i=4:ALL_columns] filename using 1:i lc i-1
 
 unset multiplot

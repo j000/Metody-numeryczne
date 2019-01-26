@@ -71,6 +71,6 @@ set ytics add ("" maxs[5] 1)
 set format x ""
 set key off
 
-plot for [i=3:ALL_columns] filename using 1:i lc i-1
+plot for [i=4:ALL_columns] filename using 1:i lc i-1
 
 unset multiplot

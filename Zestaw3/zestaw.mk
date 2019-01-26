@@ -9,6 +9,8 @@ all: plot.zad2.3.png
 all: plot.zad2.4.png
 all: plot.zad2.5.png
 all: plot.zad3.1.png
+all: plot.zad3.2.png
+all: plot.zad3.3.png
 
 result.%.txt: %.x
 	./$^ > $@
